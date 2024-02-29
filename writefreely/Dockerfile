@@ -48,7 +48,7 @@ RUN apk add --no-cache \
     && adduser -D -H -h /writefreely -u "${WRITEFREELY_UID}" writefreely \
     && install -o writefreely -g writefreely -d /data
 COPY --from=build --chown=writefreely:writefreely /stage /writefreely
-COPY --chown=writefreely:writefreely bin/writefreely-docker.sh /writefreely/
+COPY --chown=writefreely:writefreely --chmod=+x bin/writefreely-docker.sh /writefreely/
 
 VOLUME /data
 WORKDIR /writefreely
